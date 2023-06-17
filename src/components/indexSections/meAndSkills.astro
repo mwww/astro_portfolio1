@@ -1,0 +1,64 @@
+---
+export interface Props {
+	skills: {
+    skillType: string;
+    icons: {
+      file: string,
+      alt:string
+    }[]
+  }[];
+}
+
+// const test:Props = {
+//   title: 'MWWW',
+//   description: 'aaa',
+//   skills: [
+//     {
+//       skillType: 'uwaw', icons: [
+//         {
+//           file: 'a.jpg', alt: 'a'
+//         }
+//       ]
+//     }
+//   ]
+// }
+
+const {skills} = Astro.props;
+---
+
+<section>
+  <div>
+    <h2>MWWW</h2>
+    <p>Computer Science student, Full Stack Developer</p>
+  </div>
+  <div>
+    <h3>Skills</h3>
+    {skills.map((skill)=>(
+      <p>{skill.skillType}</p>
+      <div>{skill.icons.map((icon)=> (
+        <img src={icon.file} alt={icon.alt}>
+      ))}</div>
+    ))}
+  </div>
+</section>
+
+<style lang="scss">
+  section {
+    width: 100%;
+    display: flex;
+    gap: 5rem;
+    div {
+      width: 100%;
+      height: auto;
+      &:first-child {
+        // background-color: aqua;
+        h2 {
+          font-size: 8rem;
+        }
+      }
+      &:last-child {
+        margin-top: 2rem;
+      }
+    }
+  }
+</style>
