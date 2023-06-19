@@ -9,55 +9,76 @@ export interface Props {
   }[];
 }
 
-// const test:Props = {
-//   title: 'MWWW',
-//   description: 'aaa',
-//   skills: [
-//     {
-//       skillType: 'uwaw', icons: [
-//         {
-//           file: 'a.jpg', alt: 'a'
-//         }
-//       ]
-//     }
-//   ]
-// }
-
-const {skills} = Astro.props;
+const { skills } = Astro.props;
 ---
 
 <section>
   <div>
-    <h2>MWWW</h2>
-    <p>Computer Science student, Full Stack Developer</p>
-  </div>
-  <div>
-    <h3>Skills</h3>
-    {skills.map((skill)=>(
-      <p>{skill.skillType}</p>
-      <div>{skill.icons.map((icon)=> (
-        <img src={icon.file} alt={icon.alt}>
-      ))}</div>
-    ))}
+    <div>
+      <h2>MWWW</h2>
+      <p>Computer Science student, Full Stack Developer</p>
+    </div>
+    <div>
+      <h3>Skills</h3>
+      {skills.map((skill)=>(
+        <h5>{skill.skillType}</h5>
+        <div>{skill.icons.map((icon)=> (
+          <img src={`/imgs/progLangs/${icon.file}`} alt={icon.alt}>
+        ))}</div>
+      ))}
+    </div>
   </div>
 </section>
 
 <style lang="scss">
   section {
     width: 100%;
+    min-height: 50vh;
+    height: 100vh;
     display: flex;
-    gap: 5rem;
-    div {
+    align-items: center;
+    > div {
       width: 100%;
-      height: auto;
-      &:first-child {
-        // background-color: aqua;
-        h2 {
-          font-size: 8rem;
+      display: flex;
+      gap: 5rem;
+      > div {
+        width: 100%;
+        height: auto;
+        &:first-child {
+          // background-color: aqua;
+          height: max-content;
+          // position: sticky;
+          // top: 0;
+          h2 {
+            font-size: 8rem;
+            letter-spacing: 2rem;
+            line-height: 8rem;
+          }
+          p {
+            padding-left: .5rem;
+          }
         }
-      }
-      &:last-child {
-        margin-top: 2rem;
+        &:last-child {
+          margin-top: .5rem;
+          > h3 {
+            font-size: 2rem;
+          }
+          > h5 {
+            font-weight: normal;
+          }
+          > div {
+            display: flex;
+            flex-direction: row;
+            gap: .75rem;
+            padding: .75rem 0;
+            > img {
+              aspect-ratio: 1/1;
+              width: 2rem;
+              border-radius: .25rem;
+              object-fit: cover;
+            }
+          }
+        }
       }
     }
   }
