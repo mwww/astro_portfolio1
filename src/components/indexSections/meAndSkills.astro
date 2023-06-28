@@ -1,15 +1,28 @@
 ---
-export interface Props {
-	skills: {
-    skillType: string;
-    icons: {
-      file: string,
-      alt:string
-    }[]
-  }[];
-}
-
-const { skills } = Astro.props;
+const skills = [
+	{skillType: 'Programming Languages', icons: [
+		{
+			file:'JavaScript.svg', alt:'JavaScript'
+		},
+		{
+			file:'TypeScript.svg', alt:'TypeScript'
+		},
+		{
+			file:'Python.svg', alt:'Python'
+		},
+		{
+			file:'Golang.svg', alt:'Golang'
+		},
+		{
+			file:'Bash.svg', alt:'Bash'
+		}
+	]},
+	{skillType: 'Something', icons: [
+		{
+			file:'js.png', alt:'js'
+		}
+	]}
+]
 ---
 
 <section>
@@ -33,7 +46,7 @@ const { skills } = Astro.props;
 <style lang="scss">
   section {
     width: 100%;
-    min-height: 50vh;
+    min-height: max-content;
     height: 100vh;
     display: flex;
     align-items: center;

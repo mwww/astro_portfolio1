@@ -1,0 +1,60 @@
+---
+---
+
+<section>
+  <div>
+    <div>
+      <h2>
+        Contact
+      </h2>
+      <p>
+        Let's create something amazing together!
+      </p>
+    </div>
+    <div>
+      <div>
+        <h3>EasyRent</h3>
+        <p>Car rental Website.</p>
+      </div>
+      <div>
+        <h3>EasyRent</h3>
+        <p>Car rental Website.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  section {
+    width: 100%;
+    min-height: 50vh;
+    > div {
+      width: 100%;
+      gap: 5rem;
+      > div {
+        width: 100%;
+        height: auto;
+        &:first-child {
+          height: max-content;
+          h2 {
+            font-size: 5rem;
+            letter-spacing: 1.25rem;
+            line-height: 5rem;
+          }
+          p {
+            padding-left: .5rem;
+          }
+        }
+        &:last-child {
+          display: flex;
+          gap: 1rem;
+          >div {
+            padding: 1rem;
+            background-color: #333;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+  }
+</style>
